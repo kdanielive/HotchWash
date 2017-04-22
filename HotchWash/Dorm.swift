@@ -29,3 +29,7 @@ class DormsData {
         self.allDorms.append(Dorm(myWasherNum: 3, myDormName: "Garland"))
     }
 }
+
+struct generalData {
+    static var currentDorm = Dorm(myWasherNum: 0, myDormName: "")
+}

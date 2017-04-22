@@ -1,19 +1,21 @@
 //
-//  DormsTableViewController.swift
+//  WashersTableViewController.swift
 //  HotchWash
 //
-//  Created by Daniel Kim on 4/15/17.
+//  Created by Daniel Kim on 4/20/17.
 //  Copyright © 2017 Daniel Kim. All rights reserved.
 //
 
 import UIKit
 
-class DormsTableViewController: UITableViewController {
+class WashersTableViewController: UITableViewController {
     
-    let dataManager = DormsData()
+    var currentDorm = Dorm(myWasherNum: 0, myDormName: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        currentDorm = generalData.currentDorm
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -36,24 +38,22 @@ class DormsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dataManager.allDorms.count
+        return currentDorm.washerNum * 2
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DormCell", for: indexPath) as! DormsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WasherCell", for: indexPath) as! WashersTableViewCell
         
-        cell.dormLabel.text = dataManager.allDorms[indexPath.row].dormName
-
+        if(indexPath.row < currentDorm.washerNum){
+            cell.nameLabel.text = "Washer \(indexPath.row + 1)"
+        } else if(indexPath.row < currentDorm.washerNum * 2){
+            cell.nameLabel.text = "Dryer \(indexPath.row + 1 - currentDorm.washerNum)"
+        }
         // Configure the cell...
 
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        generalData.currentDorm = dataManager.allDorms[indexPath.row]
-    }
-    
 
     /*
     // Override to support conditional editing of the table view.
@@ -97,10 +97,6 @@ class DormsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if(segue.identifier == "MainSegue") {
-            let destinationVC = segue.destination as! WashersTableViewController
-            destinationVC.currentDorm =
-        }
     }
     */
 
