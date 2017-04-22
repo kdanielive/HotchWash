@@ -5,9 +5,26 @@
 //  Created by Daniel Kim on 4/15/17.
 //  Copyright © 2017 Daniel Kim. All rights reserved.
 //
+/*
+import UIKit
+import Firebase
 
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
+    
+    func application(application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?)
+        -> Bool {
+            FIRApp.configure()
+            return true
+    }
+}
+*/
 import UIKit
 import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FIRApp.configure()
         return true
     }
 
