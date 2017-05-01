@@ -11,7 +11,9 @@ import UIKit
 class WashersTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var availability: UIView!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var availability: UIImageView!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

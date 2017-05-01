@@ -7,13 +7,39 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class DormsTableViewController: UITableViewController {
     
     let dataManager = DormsData()
+    
+    var time  = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        let todoEndpoint: String = "http://data.sparkfun.com/output/rRdjWZ5rnXiwErdlXaVj.json"
+        
+        /*
+        Alamofire.request(todoEndpoint).responseJSON { response in
+            let json = JSON(response.result.value)
+            
+            if json["runtime"].exists() {
+                print("yeah")
+            }
+            
+            print(json[0]["washeropen"])
+            print(json[0]["timestamp"].rawString())
+        */
+        
+        /*Alamofire.request(todoEndpoint).responseJSON { response in
+            let json = JSON(response.result.value)
+            
+            self.time = json[0]["runtime"].rawString()!
+        }
+        
+        print(time)*/
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

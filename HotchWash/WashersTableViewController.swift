@@ -7,13 +7,24 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class WashersTableViewController: UITableViewController {
     
     var currentDorm = Dorm(myWasherNum: 0, myDormName: "")
+    var time = ""
+    var timer = Timer()
+    var emptyFlag = ""
+    var empty = false
+    
+    var minutes: Int = 0
+    var seconds: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
 
         currentDorm = generalData.currentDorm
         
@@ -40,7 +51,6 @@ class WashersTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return currentDorm.washerNum * 2
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WasherCell", for: indexPath) as! WashersTableViewCell
@@ -50,10 +60,45 @@ class WashersTableViewController: UITableViewController {
         } else if(indexPath.row < currentDorm.washerNum * 2){
             cell.nameLabel.text = "Dryer \(indexPath.row + 1 - currentDorm.washerNum)"
         }
-        // Configure the cell...
+
+        cell.timeLabel.text = "\(minutes)min \(seconds)sec"
+        cell.timeLabel.adjustsFontSizeToFitWidth = true
+        
+        if(empty) {
+            cell.emptyLabel.text = "Empty"
+        } else {
+            cell.emptyLabel.text = "Filled"
+        }
 
         return cell
     }
+    
+    func updateTime() {
+        let todoEndpoint: String = "http://data.sparkfun.com/output/rRdjWZ5rnXiwErdlXaVj.json"
+        Alamofire.request(todoEndpoint).responseJSON { response in
+            let json = JSON(response.result.value)
+            
+            self.time = json[0]["runtime"].rawString()!
+            self.emptyFlag = json[0]["washeropen"].rawString()!
+        }
+        
+        print(time)
+        
+        minutes = (time as NSString).integerValue / 60
+        seconds = (time as NSString).integerValue - minutes * 60
+        
+        if((self.emptyFlag as NSString).integerValue == 1) {
+            empty = true
+        } else {
+            empty = false
+        }
+
+        self.tableView.reloadData()
+    }
+    
+    /*func updateTableView() {
+        self.tableView.reloadData()
+    }*/
 
     /*
     // Override to support conditional editing of the table view.

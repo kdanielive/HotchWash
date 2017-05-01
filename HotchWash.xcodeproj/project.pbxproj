@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		676F8E50E0A5A6FCB2C1E2C0 /* Pods_HotchWash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D9A3F82EBB55DD7DA83A2D /* Pods_HotchWash.framework */; };
 		7346B26A1EAB8738009DC5DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7346B2691EAB8738009DC5DF /* GoogleService-Info.plist */; };
+		7367D0741EB7B579006FF0CB /* WasherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7367D0731EB7B579006FF0CB /* WasherViewController.swift */; };
 		73E52ACF1EA25476001637C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E52ACE1EA25476001637C7 /* AppDelegate.swift */; };
 		73E52AD41EA25476001637C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73E52AD21EA25476001637C7 /* Main.storyboard */; };
 		73E52AD71EA25476001637C7 /* HotchWash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73E52AD51EA25476001637C7 /* HotchWash.xcdatamodeld */; };
@@ -49,6 +50,7 @@
 		4DDC5CF4FF75920B4E0BC08D /* Pods-HotchWashUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotchWashUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HotchWashUITests/Pods-HotchWashUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6D2A053D673BDF79B95D3415 /* Pods-HotchWashTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotchWashTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HotchWashTests/Pods-HotchWashTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7346B2691EAB8738009DC5DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7367D0731EB7B579006FF0CB /* WasherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WasherViewController.swift; sourceTree = "<group>"; };
 		73E52ACB1EA25476001637C7 /* HotchWash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotchWash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73E52ACE1EA25476001637C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73E52AD31EA25476001637C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -178,8 +180,9 @@
 		73EE8FF41EA90590005A837B /* WashersPage */ = {
 			isa = PBXGroup;
 			children = (
-				73EE8FF01EA9051C005A837B /* WashersTableViewCell.swift */,
 				73EE8FEE1EA904FE005A837B /* WashersTableViewController.swift */,
+				73EE8FF01EA9051C005A837B /* WashersTableViewCell.swift */,
+				7367D0731EB7B579006FF0CB /* WasherViewController.swift */,
 			);
 			name = WashersPage;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				73EE8FEF1EA904FE005A837B /* WashersTableViewController.swift in Sources */,
 				73EE8FF11EA9051C005A837B /* WashersTableViewCell.swift in Sources */,
 				73E52B021EA2552A001637C7 /* DormsTableViewCell.swift in Sources */,
+				7367D0741EB7B579006FF0CB /* WasherViewController.swift in Sources */,
 				73E52ACF1EA25476001637C7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
